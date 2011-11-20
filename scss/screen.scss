@@ -1,0 +1,115 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+//@import "compass/reset";
+@import "includes/normalize";
+@import "compass";
+@import "includes/typography";
+
+/*** Theme variables ***/
+
+$home-text: #515830;
+$home-shadow: #aab569;
+$wd-text: #36292c;
+$wd-shadow: #866a71;
+$fd-text: #222222;
+$il-text: #c7c3aa;
+$il-shadow: #faf9f2;
+$ud-text: #1a4d70;
+$ud-shadow: #aed8f6;
+
+
+/*** Mixins ***/
+
+@mixin list-style($text-color: #fff, $shadow-color: false) {
+  @if $shadow-color {
+    @include text-shadow($shadow-color 1px 1px 1px);
+  }
+  color: $text-color;
+  text-decoration: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.content {
+  color: #fff;
+  text-align: center;
+  font-family: adventBold2, sans-serif;
+  width: 750px;
+  margin: 0 auto;
+  p {
+    font-size: 1.6em;
+    padding-top: 90px;
+  }
+}
+
+.navList {
+  @include inline-block-list($padding: 5px);
+  font-size: 1.2em;
+  width: 100%;
+  margin: 150px auto 0;
+}
+
+#home {
+  .content {color: #515830;}
+  background: transparent url("../images/home-bg.png") repeat;
+  .navList {font-size: 1.5em;}
+  .navList a {
+     @include list-style($home-text, $home-shadow);
+     &:hover, &.active {
+       @include list-style(#fff);
+       text-shadow: none;
+     }
+  }
+}
+
+#webDesigner {
+  background: transparent url("../images/web-designer-bg.png") repeat;
+  .navList a {
+     @include list-style($wd-text, $wd-shadow);
+     &:hover, &.active {
+       @include list-style(#fff);
+       text-shadow: none;
+     }
+  }
+}
+
+#frontendDeveloper {
+  background: transparent url("../images/frontend-developer-bg.png") repeat;
+  .navList a {
+     @include list-style($fd-text);
+     &:hover, &.active {
+       @include list-style(#fff);
+       text-shadow: none;
+     }
+  }
+}
+
+#illustrator {
+  .content {color: #222;}
+  background: transparent url("../images/illustrator-bg.png") repeat;
+  .navList a {
+     @include list-style($il-text, $il-shadow);
+     &:hover, &.active {
+       @include list-style(#222);
+       text-shadow: none;
+     }
+  }
+}
+
+#uxDesigner {
+  background: transparent url("../images/ux-designer-bg.png") repeat;
+  .navList a {
+     @include list-style($ud-text, $ud-shadow);
+     &:hover, &.active {
+       @include list-style(#fff);
+       text-shadow: none;
+     }
+  }
+}
